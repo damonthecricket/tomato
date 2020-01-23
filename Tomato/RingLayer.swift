@@ -1,5 +1,5 @@
 //
-//  PercentLayer.swift
+//  RingLayer.swift
 //  Tomato
 //
 //  Created by Damon Cricket on 23.01.2020.
@@ -8,10 +8,8 @@
 
 import UIKit
 
-class PercentLayer: CALayer {
+class RingLayer: CALayer {
     var color: CGColor = UIColor.clear.cgColor
-    var start: CGFloat = 0.0
-    var end: CGFloat = 0.0
     var width: CGFloat = 0.0
     
     override init() {
@@ -26,11 +24,9 @@ class PercentLayer: CALayer {
     
     override init(layer: Any) {
         super.init(layer: layer)
-        if let percentLayer = layer as? PercentLayer {
-            color = percentLayer.color
-            start = percentLayer.start
-            end = percentLayer.end
-            width = percentLayer.width
+        if let ringLayer = layer as? RingLayer {
+            color = ringLayer.color
+            width = ringLayer.width
         }
         postInitSetup()
     }
@@ -43,12 +39,16 @@ class PercentLayer: CALayer {
         super.draw(in: ctx)
         
         UIGraphicsPushContext(ctx)
-        ctx.setLineWidth(width)
         ctx.setStrokeColor(color)
-        let upArcPath = CGMutablePath()
-        upArcPath.addArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: bounds.midX + width/2, startAngle: start, endAngle: end, clockwise: false)
-        ctx.addPath(upArcPath)
+        ctx.setLineWidth(width)
+        let path = CGMutablePath()
+        path.addArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: bounds.midX - width/2, startAngle: 0.0, endAngle: DegreesToRadians(360.0), clockwise: true)
+        ctx.addPath(path)
         ctx.strokePath()
         UIGraphicsPopContext()
     }
+}
+
+func DegreesToRadians(_ degrees: CGFloat) -> CGFloat {
+    return degrees*CGFloat.pi/180
 }

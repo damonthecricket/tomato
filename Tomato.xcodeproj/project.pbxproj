@@ -18,6 +18,8 @@
 		4E92AC6423D9B99100985157 /* PercentLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92AC6323D9B99100985157 /* PercentLayer.swift */; };
 		4E92AC6623D9B9AE00985157 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92AC6523D9B9AE00985157 /* SettingsViewController.swift */; };
 		4E92AC6823D9B9C100985157 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92AC6723D9B9C100985157 /* SettingsService.swift */; };
+		4E92AC6A23D9F3D800985157 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92AC6923D9F3D800985157 /* RingView.swift */; };
+		4E92AC6C23D9F3EC00985157 /* RingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92AC6B23D9F3EC00985157 /* RingLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		4E92AC6323D9B99100985157 /* PercentLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentLayer.swift; sourceTree = "<group>"; };
 		4E92AC6523D9B9AE00985157 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4E92AC6723D9B9C100985157 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		4E92AC6923D9F3D800985157 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		4E92AC6B23D9F3EC00985157 /* RingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				4E92AC6523D9B9AE00985157 /* SettingsViewController.swift */,
 				4E92AC6123D9B98100985157 /* PercentView.swift */,
 				4E92AC6323D9B99100985157 /* PercentLayer.swift */,
+				4E92AC6923D9F3D800985157 /* RingView.swift */,
+				4E92AC6B23D9F3EC00985157 /* RingLayer.swift */,
 				4E92AC6723D9B9C100985157 /* SettingsService.swift */,
 				4E92AC4C23D9B7B500985157 /* Assets.xcassets */,
 				4E92AC5123D9B7B500985157 /* LaunchScreen.storyboard */,
@@ -163,9 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E92AC6223D9B98100985157 /* PercentView.swift in Sources */,
+				4E92AC6C23D9F3EC00985157 /* RingLayer.swift in Sources */,
 				4E92AC5D23D9B80100985157 /* MainViewController.swift in Sources */,
 				4E92AC6423D9B99100985157 /* PercentLayer.swift in Sources */,
 				4E92AC4723D9B7B300985157 /* AppDelegate.swift in Sources */,
+				4E92AC6A23D9F3D800985157 /* RingView.swift in Sources */,
 				4E92AC4923D9B7B300985157 /* SceneDelegate.swift in Sources */,
 				4E92AC6823D9B9C100985157 /* SettingsService.swift in Sources */,
 				4E92AC6623D9B9AE00985157 /* SettingsViewController.swift in Sources */,

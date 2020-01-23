@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fyj-hq-pVD">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +12,7 @@
             <objects>
                 <navigationController id="fyj-hq-pVD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NjQ-R7-y6G">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -28,14 +28,56 @@
             <objects>
                 <viewController id="8Al-Hj-FET" customClass="MainViewController" customModule="Tomato" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KTX-IW-pPv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-uq-Uq4" customClass="RingView" customModule="Tomato" customModuleProvider="target">
+                                <rect key="frame" x="57" y="178" width="300" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-FL-xbr" customClass="PercentView" customModule="Tomato" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wER-an-9kn">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2T1-FL-xbr" secondAttribute="bottom" id="GuC-2w-f18"/>
+                                    <constraint firstAttribute="height" constant="300" id="Uo8-Ot-91V"/>
+                                    <constraint firstAttribute="bottom" secondItem="wER-an-9kn" secondAttribute="bottom" id="XTo-3p-gyi"/>
+                                    <constraint firstItem="wER-an-9kn" firstAttribute="leading" secondItem="IVh-uq-Uq4" secondAttribute="leading" id="dLX-SH-1Xa"/>
+                                    <constraint firstItem="2T1-FL-xbr" firstAttribute="top" secondItem="IVh-uq-Uq4" secondAttribute="top" id="eVx-Nc-aaU"/>
+                                    <constraint firstAttribute="trailing" secondItem="2T1-FL-xbr" secondAttribute="trailing" id="gKN-Ht-zFh"/>
+                                    <constraint firstAttribute="width" constant="300" id="gsK-fB-7JB"/>
+                                    <constraint firstAttribute="trailing" secondItem="wER-an-9kn" secondAttribute="trailing" id="ntD-k8-bbw"/>
+                                    <constraint firstItem="2T1-FL-xbr" firstAttribute="leading" secondItem="IVh-uq-Uq4" secondAttribute="leading" id="pci-mS-cWX"/>
+                                    <constraint firstItem="wER-an-9kn" firstAttribute="top" secondItem="IVh-uq-Uq4" secondAttribute="top" id="zo4-QQ-edF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IVh-uq-Uq4" firstAttribute="centerY" secondItem="KTX-IW-pPv" secondAttribute="centerY" constant="-40" id="BMf-UF-e5A"/>
+                            <constraint firstItem="IVh-uq-Uq4" firstAttribute="centerX" secondItem="KTX-IW-pPv" secondAttribute="centerX" id="pgB-7F-qBN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dpC-fF-gD4"/>
                     </view>
                     <navigationItem key="navigationItem" id="zKv-Ac-oMz">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="umR-yz-3i2"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="umR-yz-3i2">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="percentView" destination="2T1-FL-xbr" id="RHf-NX-zCk"/>
+                        <outlet property="ringView" destination="IVh-uq-Uq4" id="Goi-aK-D3I"/>
+                        <outlet property="timerLabel" destination="wER-an-9kn" id="nPx-9E-h1M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wom-IJ-8Zo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
