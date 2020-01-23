@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fyj-hq-pVD">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +12,7 @@
             <objects>
                 <navigationController id="fyj-hq-pVD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NjQ-R7-y6G">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -28,11 +28,11 @@
             <objects>
                 <viewController id="8Al-Hj-FET" customClass="MainViewController" customModule="Tomato" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KTX-IW-pPv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-uq-Uq4" customClass="RingView" customModule="Tomato" customModuleProvider="target">
-                                <rect key="frame" x="57" y="178" width="300" height="300"/>
+                                <rect key="frame" x="10" y="50" width="300" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-FL-xbr" customClass="PercentView" customModule="Tomato" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -60,10 +60,33 @@
                                     <constraint firstItem="wER-an-9kn" firstAttribute="top" secondItem="IVh-uq-Uq4" secondAttribute="top" id="zo4-QQ-edF"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mW-mZ-XYp" customClass="RingView" customModule="Tomato" customModuleProvider="target">
+                                <rect key="frame" x="110" y="380" width="100" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXV-De-dnD">
+                                        <rect key="frame" x="25" y="25" width="50" height="50"/>
+                                        <state key="normal" image="start"/>
+                                        <connections>
+                                            <action selector="startButtonTapWithSender:" destination="8Al-Hj-FET" eventType="touchUpInside" id="AhG-9Y-4qb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KXV-De-dnD" secondAttribute="trailing" constant="25" id="AJ2-Gk-bI6"/>
+                                    <constraint firstItem="KXV-De-dnD" firstAttribute="top" secondItem="3mW-mZ-XYp" secondAttribute="top" constant="25" id="D4h-qH-RzB"/>
+                                    <constraint firstAttribute="height" constant="100" id="R9W-Sc-ZDZ"/>
+                                    <constraint firstItem="KXV-De-dnD" firstAttribute="leading" secondItem="3mW-mZ-XYp" secondAttribute="leading" constant="25" id="SgP-Is-FUx"/>
+                                    <constraint firstAttribute="bottom" secondItem="KXV-De-dnD" secondAttribute="bottom" constant="25" id="iNs-Bf-PHn"/>
+                                    <constraint firstAttribute="width" constant="100" id="ly4-or-flg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="IVh-uq-Uq4" firstAttribute="centerY" secondItem="KTX-IW-pPv" secondAttribute="centerY" constant="-40" id="BMf-UF-e5A"/>
+                            <constraint firstItem="3mW-mZ-XYp" firstAttribute="centerX" secondItem="KTX-IW-pPv" secondAttribute="centerX" id="Bep-kq-Skz"/>
+                            <constraint firstItem="3mW-mZ-XYp" firstAttribute="top" secondItem="IVh-uq-Uq4" secondAttribute="bottom" constant="30" id="Sl2-E6-JF8"/>
                             <constraint firstItem="IVh-uq-Uq4" firstAttribute="centerX" secondItem="KTX-IW-pPv" secondAttribute="centerX" id="pgB-7F-qBN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dpC-fF-gD4"/>
@@ -72,27 +95,24 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="umR-yz-3i2">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="06b-5V-0Sn" kind="presentation" id="ouw-DE-4bG"/>
+                                <action selector="settingsBarButtonItemTapWithSender:" destination="8Al-Hj-FET" id="6l1-El-DXf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="percentView" destination="2T1-FL-xbr" id="RHf-NX-zCk"/>
                         <outlet property="ringView" destination="IVh-uq-Uq4" id="Goi-aK-D3I"/>
+                        <outlet property="startButton" destination="KXV-De-dnD" id="11X-eh-d9r"/>
+                        <outlet property="startButtonRingView" destination="3mW-mZ-XYp" id="JSU-FW-wNP"/>
                         <outlet property="timerLabel" destination="wER-an-9kn" id="nPx-9E-h1M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wom-IJ-8Zo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13" y="106"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="8rm-AX-Kv2">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" id="06b-5V-0Sn" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iWo-Mx-adc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="810" y="135"/>
+            <point key="canvasLocation" x="11.594202898550726" y="105.97826086956522"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="start" width="512" height="512"/>
+    </resources>
 </document>

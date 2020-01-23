@@ -18,17 +18,17 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         let settings = SettingsService.shared
-        pomodoroTimeTextField?.text = "\(settings.pomodoroTime)"
-        breakTimeTextField?.text = "\(settings.breakTime)"
-        longBreakTimeTextField?.text = "\(settings.longBreakTime)"
+        pomodoroTimeTextField?.text = "\(settings.pomodoroTime/60)"
+        breakTimeTextField?.text = "\(settings.breakTime/60)"
+        longBreakTimeTextField?.text = "\(settings.longBreakTime/60)"
         longBreakEachTextField?.text = "\(settings.longBreakEach)"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         let settings = SettingsService.shared
-        settings.pomodoroTime = pomodoroTimeTextField!.integerValue
-        settings.breakTime = breakTimeTextField!.integerValue
-        settings.longBreakTime = longBreakTimeTextField!.integerValue
+        settings.pomodoroTime = pomodoroTimeTextField!.integerValue*60
+        settings.breakTime = breakTimeTextField!.integerValue*60
+        settings.longBreakTime = longBreakTimeTextField!.integerValue*60
         settings.longBreakEach = longBreakEachTextField!.integerValue
         super.viewWillDisappear(animated)
     }
@@ -41,11 +41,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         if let text = textField.text, text.isEmpty {
             let settings = SettingsService.shared
             if textField == pomodoroTimeTextField {
-                textField.text = "\(settings.pomodoroTime)"
+                textField.text = "\(settings.pomodoroTime/60)"
             } else if textField == breakTimeTextField {
-                textField.text = "\(settings.breakTime)"
+                textField.text = "\(settings.breakTime/60)"
             } else if textField == longBreakTimeTextField {
-                textField.text = "\(settings.longBreakTime)"
+                textField.text = "\(settings.longBreakTime/60)"
             } else if textField == longBreakEachTextField {
                 textField.text = "\(settings.longBreakEach)"
             }
