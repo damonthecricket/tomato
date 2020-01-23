@@ -71,6 +71,9 @@
                     <navigationItem key="navigationItem" id="zKv-Ac-oMz">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="umR-yz-3i2">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="06b-5V-0Sn" kind="presentation" id="ouw-DE-4bG"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -82,6 +85,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wom-IJ-8Zo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13" y="106"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="8rm-AX-Kv2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="06b-5V-0Sn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWo-Mx-adc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810" y="135"/>
         </scene>
     </scenes>
 </document>

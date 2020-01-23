@@ -20,6 +20,7 @@
 		4E92AC6823D9B9C100985157 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92AC6723D9B9C100985157 /* SettingsService.swift */; };
 		4E92AC6A23D9F3D800985157 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92AC6923D9F3D800985157 /* RingView.swift */; };
 		4E92AC6C23D9F3EC00985157 /* RingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E92AC6B23D9F3EC00985157 /* RingLayer.swift */; };
+		4E92AC6E23DA063400985157 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E92AC6D23DA063400985157 /* Settings.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4E92AC6723D9B9C100985157 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		4E92AC6923D9F3D800985157 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		4E92AC6B23D9F3EC00985157 /* RingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingLayer.swift; sourceTree = "<group>"; };
+		4E92AC6D23DA063400985157 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				4E92AC4C23D9B7B500985157 /* Assets.xcassets */,
 				4E92AC5123D9B7B500985157 /* LaunchScreen.storyboard */,
 				4E92AC5E23D9B81A00985157 /* Main.storyboard */,
+				4E92AC6D23DA063400985157 /* Settings.storyboard */,
 				4E92AC5423D9B7B500985157 /* Info.plist */,
 				4E92AC4E23D9B7B500985157 /* Preview Content */,
 			);
@@ -158,6 +161,7 @@
 				4E92AC5023D9B7B500985157 /* Preview Assets.xcassets in Resources */,
 				4E92AC4D23D9B7B500985157 /* Assets.xcassets in Resources */,
 				4E92AC6023D9B81A00985157 /* Main.storyboard in Resources */,
+				4E92AC6E23DA063400985157 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
