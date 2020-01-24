@@ -37,6 +37,9 @@ class MainViewController: UIViewController {
         ringView?.color = redColor
         ringView?.width = width
         
+        percentView?.color = .red
+        percentView?.width = width
+        
         startButtonRingView?.color = redColor
         startButtonRingView?.width = width
     }
@@ -47,38 +50,40 @@ class MainViewController: UIViewController {
         timerLabel?.text = "\(SettingsService.shared.pomodoroTime/60):00"
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        reset()
+        stop()
+    }
+    
     @IBAction func settingsBarButtonItemTap(sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Settings", bundle: nil).instantiateInitialViewController()!
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func startButtonTap(sender: UIButton) {
-        pomodoros = 0
-        state = .pomodoro
+        reset()
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerTick(timer:)), userInfo: nil, repeats: true)
             startButton?.setImage(UIImage(named: "stop"), for: .normal)
         } else {
-            stopTimer()
-            timerLabel?.text = "\(SettingsService.shared.pomodoroTime/60):00"
-            startButton?.setImage(UIImage(named: "start"), for: .normal)
+            stop()
         }
     }
     
     @objc func timerTick(timer: Timer) {
         time += 1
-        let settings = SettingsService.shared
-        var seconds = 0
-        switch state {
-        case  .pomodoro: seconds = settings.pomodoroTime - time
-        case     .space: seconds = settings.breakTime - time
-        case .longSpace: seconds = settings.longBreakTime - time
-        }
+        var seconds = currentTime() - time
         let minutes = seconds/60
         seconds -= minutes*60
         timerLabel?.text = "\(minutes):\(seconds)"
-        if seconds == 0 {
+        let ratio = CGFloat(time)/CGFloat(currentTime())
+        let percentage = ratio*100.0
+        percentView?.set(percent: CGFloat(percentage))
+        if currentTime()-time == 0 {
             time = 0
+            let settings = SettingsService.shared
             switch state {
             case  .pomodoro:
                 pomodoros += 1
@@ -97,6 +102,28 @@ class MainViewController: UIViewController {
                 timerLabel?.text = "\(settings.pomodoroTime/60):00"
             }
         }
+    }
+    
+    func currentTime() -> Int {
+        let settings = SettingsService.shared
+        switch state {
+        case  .pomodoro: return settings.pomodoroTime
+        case     .space: return settings.breakTime
+        case .longSpace: return settings.longBreakTime
+        }
+    }
+    
+    func reset() {
+        pomodoros = 0
+        state = .pomodoro
+        time = 0
+        percentView?.set(percent: 0.0)
+    }
+    
+    func stop() {
+        stopTimer()
+        timerLabel?.text = "\(SettingsService.shared.pomodoroTime/60):00"
+        startButton?.setImage(UIImage(named: "start"), for: .normal)
     }
     
     func stopTimer() {

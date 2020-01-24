@@ -46,7 +46,7 @@ class PercentLayer: CALayer {
         ctx.setLineWidth(width)
         ctx.setStrokeColor(color)
         let upArcPath = CGMutablePath()
-        upArcPath.addArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: bounds.midX + width/2, startAngle: start, endAngle: end, clockwise: false)
+        upArcPath.addArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: bounds.midX - width/2, startAngle: start, endAngle: end, clockwise: false)
         ctx.addPath(upArcPath)
         ctx.strokePath()
         UIGraphicsPopContext()

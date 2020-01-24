@@ -16,20 +16,6 @@ class PercentView: UIView {
             return UIColor(cgColor: percentLayer.color)
         }
     }
-    var start: CGFloat {
-        set {
-            percentLayer.start = newValue
-        } get {
-            return percentLayer.start
-        }
-    }
-    var end: CGFloat {
-        set {
-            percentLayer.end = newValue
-        } get {
-            return percentLayer.end
-        }
-    }
     var width: CGFloat {
         set {
             percentLayer.width = newValue
@@ -42,5 +28,17 @@ class PercentView: UIView {
     }
     override open class var layerClass: AnyClass {
         return PercentLayer.self
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let angle = DegreesToRadians(270.0)
+        percentLayer.start = angle
+        percentLayer.end = angle
+    }
+    func set(percent: CGFloat) {
+        let one = DegreesToRadians(360.0)/100.0
+        let result = percent * one
+        percentLayer.end = result - DegreesToRadians(90.0)
+        percentLayer.setNeedsDisplay()
     }
 }
